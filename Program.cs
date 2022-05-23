@@ -6,7 +6,7 @@ using System.Linq;
 Random rand = new Random();
 void GameLoop()
 {
-    int secretNum = rand.Next(0, 101);
+    int secretNum = rand.Next(1, 101);
     int userGuesses = 0;
     double allowedGuesses = 0;
     bool difficultySelected = false;
@@ -71,6 +71,7 @@ void GameLoop()
         if (userGuesses == allowedGuesses)
         {
             Console.WriteLine("Game Over!");
+            Console.WriteLine($"The number was {secretNum}!");
             break;
         }
     }
