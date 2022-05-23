@@ -39,7 +39,7 @@ void GameLoop()
 
     }
 
-    while (difficultySelected && userGuesses < allowedGuesses)
+    while (difficultySelected && userGuesses <= allowedGuesses)
     {
         Console.WriteLine($"You have {allowedGuesses - userGuesses} guesses left!");
         Console.WriteLine("Guess the secret number!");
@@ -68,8 +68,13 @@ void GameLoop()
             }
             userGuesses++;
         }
+        if (userGuesses == allowedGuesses)
+        {
+            Console.WriteLine("Game Over!");
+            break;
+        }
     }
-}
+};
 
 GameLoop();
 
