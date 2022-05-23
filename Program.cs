@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
+
+
 
 Random rand = new Random();
-
-
 void GameLoop()
 {
     int secretNum = rand.Next(0, 101);
@@ -14,21 +15,21 @@ void GameLoop()
     Console.WriteLine("Easy(E), Medium(M), Hard(H), Cheater(C)");
     string difficulty = Console.ReadLine();
 
-    switch (difficulty)
+    switch (difficulty.ToLower())
     {
-        case "E":
+        case "e":
             allowedGuesses = 8;
             difficultySelected = true;
             break;
-        case "M":
+        case "m":
             allowedGuesses = 6;
             difficultySelected = true;
             break;
-        case "H":
+        case "h":
             allowedGuesses = 4;
             difficultySelected = true;
             break;
-        case "C":
+        case "c":
             allowedGuesses = double.PositiveInfinity;
             difficultySelected = true;
             break;
@@ -44,14 +45,20 @@ void GameLoop()
         Console.WriteLine("Guess the secret number!");
         string userGuess = Console.ReadLine();
 
-        if (int.Parse(userGuess) == secretNum)
+
+        if (!userGuess.All(char.IsDigit))
+        {
+            Console.WriteLine("Please enter an integer!");
+            userGuess = Console.ReadLine();
+        }
+        else if (userGuess.All(char.IsDigit) && int.Parse(userGuess) == secretNum)
         {
             Console.WriteLine("You guessed the secret number!");
             break;
         }
         else
         {
-            if (int.Parse(userGuess) > secretNum)
+            if (userGuess.All(char.IsDigit) && int.Parse(userGuess) > secretNum)
             {
                 Console.WriteLine("You guessed too big!");
             }
