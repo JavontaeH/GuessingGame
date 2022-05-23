@@ -3,10 +3,10 @@ using System.Linq;
 
 
 
-Random rand = new Random();
+Random rnd = new Random();
 void GameLoop()
 {
-    int secretNum = rand.Next(1, 101);
+    int secretNum = rnd.Next(1, 101);
     int userGuesses = 0;
     double allowedGuesses = 0;
     bool difficultySelected = false;
