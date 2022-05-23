@@ -48,7 +48,7 @@ void GameLoop()
 
         if (!userGuess.All(char.IsDigit))
         {
-            Console.WriteLine("Please enter an integer!");
+            Console.WriteLine("Please enter a number!");
             userGuess = Console.ReadLine();
         }
         else if (userGuess.All(char.IsDigit) && int.Parse(userGuess) == secretNum)
