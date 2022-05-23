@@ -32,6 +32,9 @@ void GameLoop()
             allowedGuesses = double.PositiveInfinity;
             difficultySelected = true;
             break;
+        default:
+            Console.WriteLine("Please enter a valid difficulty (E,M,H,C)!");
+            break;
 
     }
 
